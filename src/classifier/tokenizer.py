@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from transformers import BertTokenizer, BertModel
-from model.ProjectionNetwork import ProjectionNetwork
+from ProjectionNetwork import ProjectionNetwork
 
 def generate_category_embeddings():
     """

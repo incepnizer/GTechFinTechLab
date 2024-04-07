@@ -12,4 +12,15 @@ class ProjectionNetwork(nn.Module):
         :param projection_size: Size of the projected vector (default is 100).
         """
         super(ProjectionNetwork, self).__init__()
-        self
+        self.fc = nn.Linear(input_size, projection_size)
+        self.activation = nn.ELU()
+
+    def forward(self, x):
+        """
+        Forward pass of the projection network.
+        :param x: Input tensor.
+        :return: Projected tensor after applying a linear layer and ELU activation.
+        """
+        x = self.fc(x)
+        x = self.activation(x)
+        return x
