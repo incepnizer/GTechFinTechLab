@@ -1,7 +1,9 @@
 import torch
 import torch.nn as nn
 from transformers import BertTokenizer, BertModel
+
 from ProjectionNetwork import ProjectionNetwork
+
 import pymongo
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
