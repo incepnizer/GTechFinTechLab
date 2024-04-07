@@ -33,6 +33,14 @@ class NewsRelevanceModel(nn.Module):
         self.classifier = nn.Linear(projection_dim, num_classes)
     
     def forward(self, input_ids, attention_mask, category_indices):
+        '''
+        input_ids: these are tokenized indices from bert tokenizer (news headlines tokenized via Bert). Shape is [batch_size, max_seq_len]
+
+        attention_mask: this is a mask that tells the model where the actual tokens are and where the padding is. The attention mask has the same shape as input_ids ([batch_size, sequence_length]). 
+
+        category_indices: integers (0-6) representing the categories of news articles, used to fetch embeddings that enhance the BERT output with categorical context. The shape is [batch_size], with each value indicating a news article's category.
+
+        '''
         # Process headlines through BERT
         outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
         pooled_output = outputs.pooler_output  # [batch_size, 768]
