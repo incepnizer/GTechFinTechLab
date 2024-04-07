@@ -2,8 +2,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from transformers import BertModel, BertTokenizer
-
-# Assuming ProjectionNetwork is defined as in your ProjectionNetwork.py
 from ProjectionNetwork import ProjectionNetwork
 
 class Attention(nn.Module):
