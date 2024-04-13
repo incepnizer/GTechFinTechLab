@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from transformers import BertModel, BertTokenizer
-from classifier.ProjectionNetwork import ProjectionNetwork
+from ProjectionNetwork import ProjectionNetwork
 
 class Attention(nn.Module):
     def __init__(self, input_dim):

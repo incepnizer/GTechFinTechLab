@@ -38,6 +38,6 @@ attention_layer = AttentionLayer(input_dim, hidden_dim, output_dim)
 headline_vectors = tokenizer.generateVectors()
 
 final_prediction = attention_layer(headline_vectors)
-print(final_prediction)
+print("f final prediction: {final_prediction}")
 predicted_probabilities = torch.softmax(final_prediction, dim=2)
-print(predicted_probabilities)
+print("f predicted probabilities: {predicted_probabilities}")
