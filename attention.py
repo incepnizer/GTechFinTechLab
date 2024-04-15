@@ -18,13 +18,12 @@ class AttentionLayer(nn.Module):
     
     def forward(self, input_tensors):
         scores = torch.cat([self.v(torch.tanh(self.W(tensor))).unsqueeze(0) for tensor in input_tensors], dim=0)
-        
         weights = F.softmax(scores, dim=0)
     
         weighted_tensors = torch.stack([torch.matmul(weights[i].T, input_tensors[i].unsqueeze(0)) for i in range(len(input_tensors))], dim=0)
         aggregated_tensor = torch.sum(weighted_tensors, dim=0)
         
-        print(aggregated_tensor)
+        print(aggregated_tensor.shape)
         output = self.fc(aggregated_tensor)
         
         return output
